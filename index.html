@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pure React</title>
+  </head>
+  <body>
+    <div id="root">React not rendered</div>
+    <script src="https://unpkg.com/react@16.8.6/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js"></script>
+    <script>
+      const Person = props => {
+        return React.createElement(
+          "div",
+          {},
+          React.createElement("div", {}, [
+            React.createElement("h1", { key: "1" }, props.name),
+            React.createElement("p", { key: "2" }, props.occupation)
+          ])
+        );
+      };
+
+      const App = () => {
+        return React.createElement(
+          "div",
+          {},
+          React.createElement("div", {}, [
+            React.createElement("h1", { key: "3" }, "React is rendered!!!"),
+            React.createElement(Person, {
+              name: "Muhammad Osama",
+              occupation: "Full Stack Developer",
+              key: "4"
+            }),
+            React.createElement(Person, {
+              name: "Umair Ahmed",
+              occupation: "Full Stack Developer",
+              key: "5"
+            }),
+            React.createElement(Person, {
+              name: "Irfan Ali",
+              occupation: "Full Stack Developer",
+              key: "6"
+            })
+          ])
+        );
+      };
+
+      ReactDOM.render(
+        React.createElement(App),
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
